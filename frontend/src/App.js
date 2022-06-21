@@ -1,23 +1,24 @@
-import React, { useRef } from "react";
+import React from "react";
 import "./App.scss";
-import { Canvas, useFrame } from "react-three-fiber";
+import Three from "./Three.js";
 // import { Box } from "@react-three/drei";
 
-const SpinningMesh = ({ position, args, color }) => {
-  const mesh = useRef(null);
-  useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01));
-  return (
-    <mesh position={position} ref={mesh}>
-      <boxBufferGeometry attach="geometry" args={args} />
-      <meshStandardMaterial attach="material" color={color} />
-    </mesh>
-  );
-};
+// const SpinningMesh = ({ position, args, color }) => {
+//   const mesh = useRef(null);
+//   useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01));
+//   return (
+//     <mesh position={position} ref={mesh}>
+//       <boxBufferGeometry attach="geometry" args={args} />
+//       <meshStandardMaterial attach="material" color={color} />
+//     </mesh>
+//   );
+// };
 
 function App() {
   return (
     <>
-      <Canvas colorManagement camera={{ position: [-5, 2, 10], fov: 60 }}>
+      <Three />
+      {/* <Canvas colorManagement camera={{ position: [-5, 2, 10], fov: 60 }}>
         <ambientLight intensity={0.3} />
         <directionalLight
           position={[0, 10, 0]}
@@ -44,7 +45,7 @@ function App() {
           args={[1, 1, 1]}
           color="lightpink"
         />
-      </Canvas>
+      </Canvas> */}
     </>
   );
 }
